@@ -6,16 +6,16 @@ import Footer from "./../../components/Shared/Footer/Footer";
 const Main = () => {
   return (
     <div>
-      <div className="dark:bg-purple-800">
+      <div>
         <div className="max-w-screen-2xl mx-auto">
           <Header></Header>
         </div>
       </div>
-      <div className="max-w-screen-2xl mx-auto mb-12">
+      <div className="max-w-screen-2xl mx-auto mb-8">
         <Outlet></Outlet>
       </div>
-      <div className="dark:bg-purple-800">
-        <div className="max-w-screen-2xl mx-auto dark:bg-gray-800  py-32">
+      <div>
+        <div className="max-w-screen-2xl mx-auto py-25">
           <Footer></Footer>
         </div>
       </div>
