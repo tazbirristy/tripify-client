@@ -18,7 +18,7 @@ const PlayStore = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="inline-flex items-center px-6 py-3 rounded-lg bg-purple-600 text-white">
+            <button className="inline-flex items-center px-6 py-3 rounded-lg bg-purple-800 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -37,7 +37,7 @@ const PlayStore = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="inline-flex items-center px-5 py-3 rounded-lg bg-purple-600 text-white">
+            <button className="inline-flex items-center px-5 py-3 rounded-lg bg-purple-800 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 50 50"
