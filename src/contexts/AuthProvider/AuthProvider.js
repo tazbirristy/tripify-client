@@ -19,11 +19,11 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
 
-  // register user with email & password
+  // register with email & password
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  // user profile update
+  //  profile update
   const updateUserProfile = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
@@ -56,13 +56,11 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // when the component will mount then it will run
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
     return () => {
-      // when the component will unmount then it will run
       unsubscribe();
     };
   }, []);
