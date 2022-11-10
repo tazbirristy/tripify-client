@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import ReviewTable from "./ReviewTable";
 
 const Reviews = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -6,14 +9,11 @@ const Reviews = () => {
   console.log(reviews);
 
   useEffect(() => {
-    fetch(
-      `https://going-global-server.vercel.app/reviews?email=${user.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("going-global-token")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/reviews?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("tripify-token")}`,
+      },
+    })
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           logOut();
@@ -28,10 +28,10 @@ const Reviews = () => {
       "Are you sure, you want to Delete your Review?"
     );
     if (proceed) {
-      fetch(`https://going-global-server.vercel.app/reviews/${id}`, {
+      fetch(`http://localhost:5000/reviews/${id}`, {
         method: "DELETE",
         headers: {
-          authorization: `Bearer ${localStorage.getItem("going-global-token")}`,
+          authorization: `Bearer ${localStorage.getItem("tripify-token")}`,
         },
       })
         .then((res) => res.json())
@@ -49,12 +49,12 @@ const Reviews = () => {
   return (
     <div>
       {reviews.length === 0 ? (
-        <h1 className="text-center font-bold text-4xl text-indigo-500">
+        <h1 className="text-center font-bold text-4xl text-purple-700">
           No reviews were added
         </h1>
       ) : (
         <div>
-          <h2 className="text-center text-2xl font-bold text-indigo-500 my-5">
+          <h2 className="text-center text-2xl font-bold text-purple-700 my-5">
             You Gave {reviews?.length} Review
           </h2>
           <div>
@@ -83,11 +83,11 @@ const Reviews = () => {
                 </thead>
                 <tbody className="text-center text-gray-300">
                   {reviews?.map((review) => (
-                    <ReviewRow
+                    <ReviewTable
                       key={review._id}
                       review={review}
                       handleDelete={handleDelete}
-                    ></ReviewRow>
+                    ></ReviewTable>
                   ))}
                 </tbody>
               </table>
