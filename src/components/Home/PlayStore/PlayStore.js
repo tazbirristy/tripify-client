@@ -6,10 +6,10 @@ const PlayStore = () => {
       <div className="container mx-auto flex flex-col justify-around p-4 text-center md:p-10 lg:flex-row">
         <div className="flex flex-col justify-center lg:text-left">
           <p className="mb-1 text-sm font-medium tracking-widest uppercase text-purple-600">
-            Hic eligendi necessitatibus quod quia
+            Want to Explore Tripify App???
           </p>
           <h1 className="py-2 text-3xl font-medium leading-tight title-font">
-            Master Cleanse Reliac Heirloom
+            Download Now !!!
           </h1>
         </div>
         <div className="flex flex-col items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 lg:ml-4 lg:mt-0 lg:justify-end">

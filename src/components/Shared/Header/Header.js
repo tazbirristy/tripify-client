@@ -31,7 +31,7 @@ const Header = () => {
               title="Company"
               className="inline-flex items-center"
             >
-              <img className="w-1/12" src={logo} alt="Tripify" />
+              <img className="w-2/12" src={logo} alt="Tripify" />
               <span className="ml-2 text-3xl font-bold tracking-wide text-gray-100 uppercase">
                 Tripify
               </span>

@@ -14,13 +14,15 @@ const Banner = () => {
         </div>
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-            Ac mattis
-            <span className="text-purple-600">senectus</span>erat pharetra
+            Welcome To <span className="text-purple-600">Tripify</span>
           </h1>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
-            Dictum aliquam porta in condimentum ac integer
-            <br className="hidden md:inline lg:hidden" />
-            turpis pulvinar, est scelerisque ligula sem
+            A 360 Degree/one stop Travel Solution Firm founded and
+            <br />
+            operated By{" "}
+            <span className="text-purple-600">
+              Mohammad Tazbir Rahman Risty.
+            </span>
           </p>
         </div>
       </div>
