@@ -88,12 +88,12 @@ const Header = () => {
                   <>
                     <li>
                       <Link
-                        to="/admin"
+                        to="/addServices"
                         aria-label="Admin Dashboard"
                         title="Admin Dashboard"
                         className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                       >
-                        Admin
+                        Add Services
                       </Link>
                     </li>
                   </>
@@ -262,12 +262,12 @@ const Header = () => {
                             <>
                               <li>
                                 <Link
-                                  to="/admin"
+                                  to="/addServices"
                                   aria-label="Admin Dashboard"
                                   title="Admin Dashboard"
                                   className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                 >
-                                  Admin
+                                  Add Services
                                 </Link>
                               </li>
                             </>
