@@ -2,14 +2,17 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import ReviewTable from "./ReviewTable";
+import useTitle from "./../../hooks/useTitle";
 
 const Reviews = () => {
+  useTitle("Reviews");
+
   const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   console.log(reviews);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user.email}`, {
+    fetch(`https://tripify-server.vercel.app/reviews?email=${user.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("tripify-token")}`,
       },
@@ -21,14 +24,14 @@ const Reviews = () => {
         return res.json();
       })
       .then((data) => setReviews(data));
-  }, [user?.email]);
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to Delete your Review?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://tripify-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("tripify-token")}`,
@@ -73,7 +76,7 @@ const Reviews = () => {
                     <th className="p-3">Service Image</th>
                     <th className="p-3">Service Name</th>
                     <th className="p-3">Review Content</th>
-                    <th className="p-3">Date</th>
+                    <th className="p-3">Time</th>
                     <th className="p-3">Email</th>
                     <th className="p-3">Phone</th>
                     <th className="p-3 text-right">Rating</th>

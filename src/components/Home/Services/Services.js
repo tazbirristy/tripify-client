@@ -11,7 +11,7 @@ const Services = () => {
   const [services, setServices] = useState();
   console.log(services);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://tripify-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -19,9 +19,9 @@ const Services = () => {
       });
   }, [setLoading]);
   return (
-    <div className="mb-20">
-      <h1 className="text-center font-bold my-10 text-gray-400 text-5xl bg-purple-500 py-3 rounded-md">
-        Explore <span className="text-gray-100">Services</span>
+    <div className="mb-12">
+      <h1 className="text-center font-bold my-10 text-gray-300 text-5xl bg-purple-800 py-3 rounded-md w-1/3 mx-auto">
+        Services
       </h1>
       <div>
         {loading ? (
@@ -36,8 +36,8 @@ const Services = () => {
       </div>
       <div className="flex justify-center mt-3">
         <Link to="/allServices">
-          <button className="px-5 py-3 bg-purple-500 text-gray-100 rounded-md">
-            Load More
+          <button className="px-5 py-3 bg-purple-800 text-gray-100 rounded-md">
+            Visit All Services
           </button>
         </Link>
       </div>

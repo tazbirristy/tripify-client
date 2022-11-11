@@ -16,8 +16,9 @@ const Service = ({ service }) => {
           />
         </PhotoView>
       </PhotoProvider>
+      <p className="text-red-300">Approximate Duration: {duration} days</p>
 
-      <div className="flex flex-col justify-between p-6 space-y-8">
+      <div className="flex flex-col justify-between p-4 space-y-8">
         <div className="space-y-2">
           <h2 className="text-2xl font-bold tracking-wide">{serviceName}</h2>
           <p className="dark:text-gray-300 text-justify">
@@ -29,8 +30,7 @@ const Service = ({ service }) => {
           </p>
           <div className="flex justify-between">
             <p className="text-red-300">Ratings: {rating}</p>
-            <p className="text-red-300">Cost: ${cost}</p>
-            <p className="text-red-300">Approximate {duration} days</p>
+            <p className="text-red-300">Price: ${cost}</p>
           </div>
         </div>
         <Link

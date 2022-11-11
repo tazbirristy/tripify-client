@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
+import useTitle from "./../hooks/useTitle";
 
 const ServiceDetails = () => {
+  useTitle("ServiceDetails");
+
   const { user } = useContext(AuthContext);
-  const service = useRouteLoaderData();
-  const { cost, description, rating, serviceImg, serviceName, duration, _id } =
+  const service = useLoaderData();
+  const { description, rating, serviceImg, serviceName, duration, _id } =
     service;
 
   const handleReview = (event) => {
@@ -18,7 +21,7 @@ const ServiceDetails = () => {
     const userRating = form.userRating.value;
     const email = user?.email || "Unregistered";
     const phone = form.phone.value;
-    const date = form.date.value;
+    const time = form.time.value;
 
     const review = {
       service: _id,
@@ -28,10 +31,10 @@ const ServiceDetails = () => {
       userRating,
       email,
       phone,
-      date,
+      time,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://tripify-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +66,7 @@ const ServiceDetails = () => {
               />
               <div className="flex items-center justify-between text-lg text-red-400">
                 <span>Rating: {rating}</span>
-                <span>Service Cost: ${cost}</span>
+                <span>Service Cost: ${service?.cost}</span>
                 <span>Approximate {duration} days</span>
               </div>
             </div>
@@ -166,8 +169,8 @@ const ServiceDetails = () => {
                 required
               />
               <input
-                type="date"
-                name="date"
+                type="time"
+                name="time"
                 id=""
                 placeholder="Image url"
                 className="w-full border px-3 py-3 rounded-md border-purple-500 outline-purple-800 mt-3"

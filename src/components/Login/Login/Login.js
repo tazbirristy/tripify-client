@@ -4,8 +4,10 @@ import { toast } from "react-toastify";
 import login_img from "../../../assets/logIn_img.svg";
 
 import { AuthContext } from "./../../../contexts/AuthProvider/AuthProvider";
+import useTitle from "./../../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const { signIn, googleProviderLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -43,10 +45,24 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        const currentUser = {
+          email: user.email,
+        };
         form.reset();
         toast.success("Successfully Logged In");
-        navigate(from, { replace: true });
+        fetch("https://tripify-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("tripify-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.error(error);
@@ -60,9 +76,24 @@ const Login = () => {
     googleProviderLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        const presentUser = {
+          email: user.email,
+        };
         toast.success("Successfully logged In", { autoClose: 500 });
-        navigate(from, { replace: true });
+
+        fetch("https://tripify-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(presentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("tripify-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((error) => {
         console.error(error);

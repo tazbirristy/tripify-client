@@ -19,12 +19,10 @@ const Footer = () => {
           </a>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-white">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam.
-            </p>
-            <p className="mt-4 text-sm text-white">
-              Eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae vitae dicta sunt explicabo.
+              Determining clients' needs and suggesting suitable travel
+              packages. Organizing travels from beginning to end, including
+              tickets, accommodation and transportation. Supplying travelers
+              with pertinent information and useful travel/holiday materials.
             </p>
           </div>
         </div>

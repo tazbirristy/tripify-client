@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ReviewTable = ({ review, handleDelete }) => {
   const {
-    date,
+    time,
     email,
     _id,
     phone,
@@ -15,7 +15,7 @@ const ReviewTable = ({ review, handleDelete }) => {
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allServices/${service}`)
+    fetch(`https://tripify-server.vercel.app/allServices/${service}`)
       .then((res) => res.json())
       .then((data) => setReviewService(data));
   }, [service]);
@@ -38,7 +38,7 @@ const ReviewTable = ({ review, handleDelete }) => {
         <p>{reviewDesc}</p>
       </td>
       <td className="p-3">
-        <p>{date}</p>
+        <p>{time}</p>
       </td>
       <td className="p-3">
         <p>{email}</p>

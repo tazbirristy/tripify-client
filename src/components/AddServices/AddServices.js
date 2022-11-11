@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import useTitle from "./../../hooks/useTitle";
 
 const AddServices = () => {
+  useTitle("AddServices");
+
   const [service, setService] = useState({});
   const handleAddServices = (event) => {
     event.preventDefault();
     console.log(service);
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://tripify-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("tripify-token")}`,
       },
       body: JSON.stringify(service),
     })
@@ -33,7 +37,7 @@ const AddServices = () => {
 
   return (
     <div>
-      <div className="text-center mb-5">
+      <div className="text-center mb-5 mt-12">
         <h3 className="text-gray-500 text-4xl font-bold">Add Services </h3>
       </div>
 
@@ -70,7 +74,7 @@ const AddServices = () => {
           type="text"
           name="cost"
           id=""
-          placeholder="Service Cost"
+          placeholder="Price"
           className="w-full border px-3 py-3 rounded-md border-purple-300 outline-purple-600 mt-3"
           required
         />
@@ -88,7 +92,7 @@ const AddServices = () => {
           type="text"
           name="duration"
           id=""
-          placeholder="Trip Duration"
+          placeholder="Duration"
           className="w-full border px-3 py-3 rounded-md border-purple-300 outline-purple-600 mt-3"
           required
         />

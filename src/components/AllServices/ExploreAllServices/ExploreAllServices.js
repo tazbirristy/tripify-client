@@ -8,7 +8,7 @@ const ExploreAllServices = () => {
   const [services, setServices] = useState();
   console.log(services);
   useEffect(() => {
-    fetch("http://localhost:5000/allServices")
+    fetch("https://tripify-server.vercel.app/allServices")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -17,8 +17,8 @@ const ExploreAllServices = () => {
   }, [setLoading]);
   return (
     <div className="mb-20">
-      <h1 className="text-center font-bold my-10 text-gray-400 text-5xl bg-purple-600 py-3 rounded-md">
-        Explore All <span className="text-gray-100">Services</span>
+      <h1 className="text-center font-bold my-10 text-gray-300 text-5xl bg-purple-800 py-3 rounded-md w-1/3 mx-auto">
+        All Services
       </h1>
       <div>
         {loading ? (

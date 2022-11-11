@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import logIn_img from "../../../assets/logIn_img.svg";
 import { AuthContext } from "./../../../contexts/AuthProvider/AuthProvider";
+import useTitle from "./../../../hooks/useTitle";
 
 const Register = () => {
+  useTitle("Register");
   const { createUser, updateUserProfile, googleProviderLogin } =
     useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +75,24 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.success("Successfully logged In", { autoClose: 500 });
+        const currentUser = {
+          email: user.email,
+        };
+        fetch("https://tripify-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("tripify-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
+
       .catch((error) => {
         console.error(error);
         const errorMessage = error.message;

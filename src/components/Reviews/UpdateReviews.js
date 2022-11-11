@@ -9,7 +9,7 @@ const UpdateReviews = () => {
   const handleEditReview = (event) => {
     event.preventDefault();
     // console.log(review);
-    fetch(`http://localhost:5000/reviews/${storedReview._id}`, {
+    fetch(`https://tripify-server.vercel.app/reviews/${storedReview._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -108,9 +108,9 @@ const UpdateReviews = () => {
         />
         <input
           onChange={handleOnChange}
-          defaultValue={storedReview.date}
-          type="date"
-          name="date"
+          defaultValue={storedReview.time}
+          type="time"
+          name="time"
           id=""
           placeholder="Image url"
           className="w-full border px-3 py-3 rounded-md border-purple-300 outline-purple-800 mt-3"

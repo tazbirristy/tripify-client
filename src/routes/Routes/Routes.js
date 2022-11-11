@@ -10,6 +10,8 @@ import Reviews from "../../components/Reviews/Reviews";
 import Main from "../../layouts/Main/Main";
 import AllServices from "./../../components/AllServices/AllServices/AllServices";
 import ServiceDetails from "./../../ServiceDetails/ServiceDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateReviews from "./../../components/Reviews/UpdateReviews";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +25,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/review",
-        element: <Reviews></Reviews>,
+        element: (
+          <PrivateRoute>
+            <Reviews></Reviews>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/blog",
@@ -35,7 +41,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addServices",
-        element: <AddServices></AddServices>,
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -50,10 +60,16 @@ export const router = createBrowserRouter([
         element: <AllServices></AllServices>,
       },
       {
+        path: "/updateReviews/:id",
+        loader: ({ params }) =>
+          fetch(`https://tripify-server.vercel.app/reviews/${params.id}`),
+        element: <UpdateReviews></UpdateReviews>,
+      },
+      {
         path: "/allServices/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allServices/${params.id}`),
+          fetch(`https://tripify-server.vercel.app/allServices/${params.id}`),
       },
     ],
   },

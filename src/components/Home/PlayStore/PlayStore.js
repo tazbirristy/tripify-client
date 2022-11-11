@@ -2,7 +2,7 @@ import React from "react";
 
 const PlayStore = () => {
   return (
-    <section className="py-6 dark:bg-gray-800 text-purple-50 mt-4">
+    <section className="py-6 mb-12 dark:bg-gray-800 text-purple-50 mt-4">
       <div className="container mx-auto flex flex-col justify-around p-4 text-center md:p-10 lg:flex-row">
         <div className="flex flex-col justify-center lg:text-left">
           <p className="mb-1 text-sm font-medium tracking-widest uppercase text-purple-600">
