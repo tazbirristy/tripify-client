@@ -7,12 +7,12 @@ operated By Mohammad Tazbir Rahman Risty. Tripify provides travel services inclu
 
 1. It's a one-stop Travel solution firm.
 2. Home page contains general information and services.
-3. Services page contains different services, where people can avail those services. It also contains details about the services. In Review section user can post and view opinion.
+3. Services page contains different services, where people can avail those services. It also contains detaails about the services. In Review section user can post and view opinion.
 4. User can see, modify or delete their opinion after login.
 5. In the Blog Section there are some questions and answered related to database, JWT token, node.js, javascript.
 6. User can register or login in the login and register sections.
 
-This Projects was created with the help of tailwind, mamba ui,kit wind, react-js, react router, react icons, firebase, react photo view, react toast.
+This Projects was created with the help of tailwind, mamba ui,kit wind, react-js, react router, aos, react icons, firebase, react photo view, react toast.
 
 ## Live Link
 

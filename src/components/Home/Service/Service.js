@@ -6,7 +6,12 @@ const Service = ({ service }) => {
   const { cost, description, rating, serviceImg, serviceName, duration, _id } =
     service;
   return (
-    <div className="max-w-md rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+    <div
+      className="max-w-md rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100"
+      data-aos="zoom-in
+      "
+      data-aos-duration="2000"
+    >
       <PhotoProvider>
         <PhotoView src={serviceImg}>
           <img

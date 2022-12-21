@@ -5,7 +5,11 @@ const Blog = () => {
   useTitle("Blog");
 
   return (
-    <div className="dark:bg-gray-800 dark:text-gray-100">
+    <div
+      className="dark:bg-gray-800 dark:text-gray-100"
+      data-aos="fade-right"
+      data-aos-duration="2000"
+    >
       <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900 mt-10">
         <div className="mt-3">
           <a
